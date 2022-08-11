@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_09_210146) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_11_183129) do
   create_table "appointments", force: :cascade do |t|
     t.integer "doctor_id"
     t.integer "patient_id"
     t.datetime "appointment_date"
     t.string "status"
-    t.integer "slot_id"
+    t.integer "time_slot_id"
     t.text "description"
     t.integer "hospital_id"
     t.datetime "created_at", null: false
@@ -27,7 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_09_210146) do
     t.string "name"
     t.text "description"
     t.string "logo"
-    t.string "active"
+    t.boolean "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -42,9 +42,24 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_09_210146) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "prescriptions", force: :cascade do |t|
+    t.text "prescription"
+    t.integer "appointment_id"
+    t.integer "doctor_id"
+    t.integer "patient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "time_slots", force: :cascade do |t|
-    t.datetime "start_at"
-    t.datetime "end_at"
+    t.string "start_at"
+    t.string "end_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -54,11 +69,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_09_210146) do
     t.string "encrypted_password", default: "", null: false
     t.string "username"
     t.string "designation"
-    t.boolean "active"
+    t.boolean "status"
     t.integer "age"
     t.string "gender"
     t.integer "hospital_id"
-    t.string "role"
+    t.integer "role_id"
+    t.integer "department_id"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

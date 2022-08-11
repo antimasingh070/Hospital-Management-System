@@ -1,0 +1,52 @@
+<%= form_with(model: prescription) do |form| %>
+  <% if prescription.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(prescription.errors.count, "error") %> prohibited this prescription from being saved:</h2>
+
+      <ul>
+        <% prescription.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :prescription, style: "display: block" %>
+    <%= form.text_area :prescription %>
+  </div>
+
+  <div>
+    <%= form.label :appointment_id, style: "display: block" %>
+    <%= form.number_field :appointment_id %>
+  </div>
+
+  <div>
+    <%= form.label :doctor_id, style: "display: block" %>
+    <%= form.number_field :doctor_id %>
+  </div>
+
+  <div>
+    <%= form.label :patient_id, style: "display: block" %>
+    <%= form.number_field :patient_id %>
+  </div>
+
+  <div class="field">    
+    <%= form.label :Doctor_ID %><br>
+    <%= form.collection_select :role_id, User.all.where(role_id: 1), :id, :role%><br>
+  </div>
+
+  <div class="field">    
+    <%= form.label :Patient_ID %><br>
+    <%= form.collection_select :role_id, Role.where(role: "Patient"), :id, :role%><br>
+  </div>
+
+  <div class="field">    
+    <%= form.label :appointment_id %><br>
+    <%= form.collection_select :appointment_id, Appointment.all, :id, :appointment%><br>
+  </div>  
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

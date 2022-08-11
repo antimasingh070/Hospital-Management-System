@@ -14,10 +14,10 @@ class DepartmentsTest < ApplicationSystemTestCase
     visit departments_url
     click_on "New department"
 
-    fill_in "Active", with: @department.active
     fill_in "Description", with: @department.description
     fill_in "Logo", with: @department.logo
     fill_in "Name", with: @department.name
+    check "Status" if @department.status
     click_on "Create Department"
 
     assert_text "Department was successfully created"
@@ -28,10 +28,10 @@ class DepartmentsTest < ApplicationSystemTestCase
     visit department_url(@department)
     click_on "Edit this department", match: :first
 
-    fill_in "Active", with: @department.active
     fill_in "Description", with: @department.description
     fill_in "Logo", with: @department.logo
     fill_in "Name", with: @department.name
+    check "Status" if @department.status
     click_on "Update Department"
 
     assert_text "Department was successfully updated"

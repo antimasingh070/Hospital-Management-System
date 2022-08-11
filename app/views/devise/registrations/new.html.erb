@@ -1,6 +1,6 @@
 <h1><%= t('.sign_up') %></h1>
 <div class="row">
-  <div class="col-9">
+  <div class="col-5">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= bootstrap_devise_error_messages! %>
 
@@ -32,32 +32,37 @@
         <%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control' %>
       </div>
-      <div class="row">
-        <div class="field">    
-          <%= f.label :gender %></br>
-          <span class="option">Male<span><%= f.radio_button :gender, "M" %></br>
-          <span class="option">Female<span><%= f.radio_button :gender, "F" %></br>
+      <div class="col g-2">
+        <div class="row-md">
+          <div class="field">    
+            <%= f.label :gender %>
+            <%= f.radio_button :gender, "M" %><span class="option">Male<span>
+            <%= f.radio_button :gender, "F" %><span class="option">Female<span>
+          </div>
         </div>
-
-        <div class="field">    
-          <%= f.label :role %></br>
-          <span class="option">Administrator<span><%= f.radio_button :role, "Administrator" %></br>
-          <span class="option">Doctor<span><%= f.radio_button :role, "Doctor" %></br>
-          <span class="option">Patient<span><%= f.radio_button :role, "Patient" %></br>
-        </div>
-
-        <div class="field">    
-          <%= f.label :designation %></br>
-          <span class="option">Cardiologist<span><%= f.radio_button :designation, "Cardiologist" %></br>
-          <span class="option">Neurologist<span><%= f.radio_button :designation, "Neurologist" %></br>
-          <span class="option">General<span><%= f.radio_button :designation, "General" %></br>
-        </div>
-
-        <div class="field">
-          <%= f.label :hospital %><br>
-          <%= f.collection_select :hospital_id, Hospital.all, :id, :name %>
+        <div class="row-md">
+          <div class="field">    
+              <%= f.label :department %><br>
+              <%= f.collection_select :department_id, Department.all, :id, :name%><br>
+          </div>
         </div>
       </div>
+
+      <div class="row g-2">
+        <div class="col-md">
+            <div class="field">    
+              <%= f.label :role %><br>
+              <%= f.collection_select :role_id, Role.where.not(role: "Administrator"), :id, :role%><br>
+            </div>
+        </div>
+        <div class="col-md">
+          <div class="field">
+            <%= f.label :hospital %><br>
+            <%= f.collection_select :hospital_id, Hospital.all, :id, :name %><br>
+          </div>
+        </div>
+      </div>
+      
 
       <div class="form-group">
         <%= f.submit t('.sign_up'), class: 'btn btn-primary' %>

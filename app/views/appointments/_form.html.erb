@@ -10,12 +10,20 @@
       </ul>
     </div>
   <% end %>
+    
+  <%= form_with model: @role do |form| %>
+    <div class="field">    
+      <%= form.label :Doctor_ID %><br>
+      <%= form.collection_select :role_id, User.all.where(role: 1), :id, :role%><br>
+    </div>
 
-  <div>
-    <%= form.label :doctor_id, style: "display: block" %>
-    <%= form.number_field :doctor_id %>
-  </div>
-
+    <div class="field">    
+      <%= form.label :Patient_ID %><br>
+      <%= form.collection_select :role_id, Role.where(role: "Patient"), :id, :role%><br>
+    </div>
+  <% end %>   
+    
+  
   <div>
     <%= form.label :patient_id, style: "display: block" %>
     <%= form.number_field :patient_id %>
