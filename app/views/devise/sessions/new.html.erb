@@ -12,13 +12,6 @@
         <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control' %>
       </div>
 
-      <div class="col-md">
-        <div class="field">    
-          <%= f.label :role %><br>
-          <%= f.collection_select :role_id, Role.all, :id, :role%><br>
-        </div>
-      </div>
-
       <div class="field">
         <%= f.label :hospital %><br>
         <%= f.collection_select :hospital_id, Hospital.all, :id, :name %>

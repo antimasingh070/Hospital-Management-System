@@ -16,35 +16,23 @@
     <%= form.text_area :prescription %>
   </div>
 
-  <div>
-    <%= form.label :appointment_id, style: "display: block" %>
-    <%= form.number_field :appointment_id %>
+  
+  <div class="field">    
+    <%= form.label :Doctor_id %>
+    <%= form.collection_select :doctor_id, User.all.where(role: "Doctor"), :id, :username%><br>
   </div>
-
-  <div>
-    <%= form.label :doctor_id, style: "display: block" %>
-    <%= form.number_field :doctor_id %>
-  </div>
-
-  <div>
-    <%= form.label :patient_id, style: "display: block" %>
-    <%= form.number_field :patient_id %>
-  </div>
+   
 
   <div class="field">    
-    <%= form.label :Doctor_ID %><br>
-    <%= form.collection_select :role_id, User.all.where(role_id: 1), :id, :role%><br>
+    <%= form.label :patient_id %>
+    <%= form.collection_select :patient_id, User.all.where(role: "Patient"), :id, :username%><br>
   </div>
+  
 
   <div class="field">    
-    <%= form.label :Patient_ID %><br>
-    <%= form.collection_select :role_id, Role.where(role: "Patient"), :id, :role%><br>
-  </div>
-
-  <div class="field">    
-    <%= form.label :appointment_id %><br>
-    <%= form.collection_select :appointment_id, Appointment.all, :id, :appointment%><br>
-  </div>  
+    <%= form.label :Appointment_id %>
+    <%= form.collection_select :appointment_id, Appointment.all, :id, :appointment_date%><br>
+  </div>   
 
   <div>
     <%= form.submit %>

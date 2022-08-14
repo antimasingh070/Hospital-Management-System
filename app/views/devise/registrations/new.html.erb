@@ -50,10 +50,11 @@
 
       <div class="row g-2">
         <div class="col-md">
-            <div class="field">    
-              <%= f.label :role %><br>
-              <%= f.collection_select :role_id, Role.where.not(role: "Administrator"), :id, :role%><br>
-            </div>
+          <div class="field">    
+            <%= f.label :role %></br>
+            <span class="option">Doctor<span><%= f.radio_button :role, "Doctor" %></br>
+            <span class="option">Patient<span><%= f.radio_button :role, "Patient" %></br>
+          </div>
         </div>
         <div class="col-md">
           <div class="field">

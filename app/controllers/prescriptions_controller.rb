@@ -1,6 +1,8 @@
 class PrescriptionsController < ApplicationController
   before_action :set_prescription, only: %i[ show edit update destroy ]
-
+  before_action :set_doctor, only: %i[ show edit update destroy ]
+  before_action :set_patient, only: %i[ show ]
+  before_action :set_administrator, only: %i[ show]
   # GET /prescriptions or /prescriptions.json
   def index
     @prescriptions = Prescription.all
@@ -46,7 +48,7 @@ class PrescriptionsController < ApplicationController
       end
     end
   end
-
+   
   # DELETE /prescriptions/1 or /prescriptions/1.json
   def destroy
     @prescription.destroy

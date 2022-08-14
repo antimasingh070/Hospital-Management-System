@@ -5,7 +5,7 @@ one:
   patient_id: 1
   appointment_date: 2022-08-11 23:54:19
   status: MyString
-  slot_id: 1
+  time_slot_id: 1
   description: MyText
   hospital_id: 1
 
@@ -14,6 +14,6 @@ two:
   patient_id: 1
   appointment_date: 2022-08-11 23:54:19
   status: MyString
-  slot_id: 1
+  time_slot_id: 1
   description: MyText
   hospital_id: 1

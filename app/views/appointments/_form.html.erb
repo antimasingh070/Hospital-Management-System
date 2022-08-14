@@ -11,22 +11,14 @@
     </div>
   <% end %>
     
-  <%= form_with model: @role do |form| %>
-    <div class="field">    
-      <%= form.label :Doctor_ID %><br>
-      <%= form.collection_select :role_id, User.all.where(role: 1), :id, :role%><br>
-    </div>
+  <div class="field">    
+    <%= form.label :Doctor_id %>
+    <%= form.collection_select :doctor_id, User.all.where(role: "Doctor"), :id, :username%><br>
+  </div>
 
-    <div class="field">    
-      <%= form.label :Patient_ID %><br>
-      <%= form.collection_select :role_id, Role.where(role: "Patient"), :id, :role%><br>
-    </div>
-  <% end %>   
-    
-  
-  <div>
-    <%= form.label :patient_id, style: "display: block" %>
-    <%= form.number_field :patient_id %>
+  <div class="field">    
+    <%= form.label :patient_id %>
+    <%= form.collection_select :patient_id, User.all.where(role: "Patient"), :id, :username%><br>
   </div>
 
   <div>
@@ -40,8 +32,8 @@
   </div>
 
   <div>
-    <%= form.label :slot_id, style: "display: block" %>
-    <%= form.number_field :slot_id %>
+    <%= form.label :time_slot_id, style: "display: block" %>
+    <%= form.collection_select :time_slot_id, TimeSlot.all, :id, :start_at%><br>
   </div>
 
   <div>
@@ -49,9 +41,9 @@
     <%= form.text_area :description %>
   </div>
 
-  <div>
-    <%= form.label :hospital_id, style: "display: block" %>
-    <%= form.number_field :hospital_id %>
+  <div class="field">    
+    <%= form.label :Hospital_id %>
+    <%= form.collection_select :Hospital_id, Hospital.all, :id, :name%><br>
   </div>
 
   <div>

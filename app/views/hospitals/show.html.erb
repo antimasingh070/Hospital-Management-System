@@ -1,0 +1,23 @@
+<div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+  <div class="card-header">Showing Hospital details</div>
+  <div class="card-body">
+    <h5 class="card-title"><strong>Hospital ID: </strong> <%= @hospital.id %> <br></h5>
+    <p class="card-text">
+      <strong>Name:</strong> <%= @hospital.name %><br>
+      <strong>Description: </strong> <%= @hospital.description %><br>
+      <strong>Address: </strong> <%= @hospital.address %>
+      <strong>Specialization: </strong> <%= @hospital.specialization %>
+      <strong>Logo: </strong> <%= @hospital.logo %>
+    </p>
+  </div>
+</div>
+
+<hr />
+<div class="card-body">
+          <div class="card-text text-left"><%= simple_format(@hospital.description) %></div>
+          <% if logged_in? && (@hospital.user == current_user || current_user.Administration?) %>
+          <%= link_to "Edit", edit_book_path(@hospital), class: "btn btn-outline-info" %>
+          <%= link_to "Delete", hospital_path(@hospital), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+          <% end %>
+        </div>
+<%= link_to 'Back', {:action => 'index'},  class: 'btn btn-primary' %>

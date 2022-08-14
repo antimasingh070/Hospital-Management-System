@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :require_user, except: [:create, :destroy]
+  before_action :set_user, only: [:edit]
+  # before_action :require_user, except: [:create, :destroy]
   before_action :require_same_user, only: [:edit, :update, :destroy, :new, :create]
 
-
+  def show
+    
+  end
+  
   def new
     @user = User.new
   end
@@ -48,7 +51,7 @@ class UsersController < ApplicationController
   end
 
   def require_same_user
-    if !current_user.administrator?
+    if !current_user.set_administrator?
       flash[:alert] = "You can only edit or delete your own account"
       redirect_to @user
     end

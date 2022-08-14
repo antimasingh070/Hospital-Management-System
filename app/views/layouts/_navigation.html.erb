@@ -1,48 +1,42 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <%= link_to "Hotel Management System", root_path, class: "navbar-brand", id: "logo" %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <div class="container">
+        <%= link_to 'Hospital Management System', root_path, class: 'navbar-brand' %>
+        <% if current_user %> 
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <%= link_to "Department", departments_path, class: "nav-link"%>
-      </li>
-      <li class="nav-item">
-        <%= link_to "View appointment", appointments_path, class: "nav-link"%>
-      </li>
-      <li class="nav-item">
-        <%= link_to "View Prescription", prescriptions_path, class: "nav-link"%>
-      </li>
-      
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item <%= 'active' if request.path == departments_path %>">
+                      <%= link_to 'Department', departments_path, class: 'nav-link' %>
+                  </li>
+                  <li class="nav-item <%= 'active' if request.path == appointments_path %>">
+                      <%= link_to 'Appointment', appointments_path, class: 'nav-link' %>
+                  </li>
+                  <li class="nav-item <%= 'active' if request.path == prescriptions_path %>">
+                      <%= link_to 'Prescription', prescriptions_path, class: 'nav-link' %>
+                  </li>
+                  
+                </ul>
+                
+                <ul class='navbar-nav ml-auto'>
+                <%# <%- if logged_in? %> 
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-      <% if logged_in? %>
-        <li class="nav-item">
-          <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= "(Administrator)" if current_user.administrator? %> Profile [<%= current_user.username %>]
-          </a>
-          <div class="nav-item" aria-labelledby="navbarDropdown">
-            <%= link_to "View your profile", user_path(current_user), class: "dropdown-item" %>
-            <%= link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item" %>
-            <%= link_to "Delete profile", user_path(current_user), class: "dropdown-item text-danger", method: :delete %> 
-          </div>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Logout', logout_path, class: "nav-link", method: :delete %>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to 'Log in', login_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Sign up', signup_path, class: "nav-link" %>
-        </li>
-      <% end %>
-      </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
+                    
+                    <%# <%= current_user.user_name %>
+                    <%# <% end %>
+                    </a>
+                
+                    <li class='nav-item'>
+                        <%= link_to("Logout", destroy_user_session_path,
+                            class: "btn btn-danger logout-button", method: :delete)%>
+                    </li>
+                </ul>
+                 
+            </div>
+        <% end %>
+    </div>
 </nav>

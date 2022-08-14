@@ -4,7 +4,7 @@ class CreateDepartments < ActiveRecord::Migration[7.0]
       t.string :name
       t.text :description
       t.string :logo
-      t.boolean :status
+      t.boolean :active
 
       t.timestamps
     end
