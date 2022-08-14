@@ -29,3 +29,37 @@
       margin-top: 3.5%;
       padding-right: 5px;
   }
+
+  .jumbotron {
+    background-image: asset-url('jumbo-copy.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 3%;
+    height: 425px;
+    font-size: 0.5cm;
+    font-weight: bold;
+  }
+  .display-4 {
+    font-size: 1.5cm;
+    font-weight: bold;
+    color: black ;
+  }
+  .lead {
+    color: black ;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  html,
+  body {
+    height: 100%;
+  }
+  
+  #page-content {
+    flex: 1 0 auto;
+    background-color: lightgrey;
+  }
+  
+  #sticky-footer {
+    flex-shrink: none;
+  }
+  

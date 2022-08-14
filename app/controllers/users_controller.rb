@@ -1,12 +1,17 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit]
-  # before_action :require_user, except: [:create, :destroy]
+  before_action :require_user, except: [:create, :destroy]
   before_action :require_same_user, only: [:edit, :update, :destroy, :new, :create]
 
   def show
     
   end
-  
+  def show
+    @hospital = Hospital.find(params[:id])
+  end
+  def index
+      @users = User.all
+  end
   def new
     @user = User.new
   end

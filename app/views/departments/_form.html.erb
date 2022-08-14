@@ -31,6 +31,15 @@
     <%= form.check_box :status %>
   </div>
 
+  <%# <div>
+    <%= form.label :hospital_id, style: "display: block" %>
+    <%# <%= form.number_field :hospital_id %>
+  <%# </div> %> 
+  <div>
+    <%= form.label :Hospital_id, style: "display: block" %>
+    <%= form.collection_select :hospital_id, Hospital.all.where(id: current_user.hospital_id), :id, :name%><br>
+  </div> 
+
   <div>
     <%= form.submit %>
   </div>

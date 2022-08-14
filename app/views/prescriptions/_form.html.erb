@@ -19,7 +19,7 @@
   
   <div class="field">    
     <%= form.label :Doctor_id %>
-    <%= form.collection_select :doctor_id, User.all.where(role: "Doctor"), :id, :username%><br>
+    <%= form.collection_select :doctor_id, User.all.where(role: "Doctor", id: current_user.id), :id, :username%><br>
   </div>
    
 

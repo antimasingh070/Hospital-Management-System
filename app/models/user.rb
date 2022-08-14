@@ -3,9 +3,10 @@ class User < ApplicationRecord
   belongs_to :department
   has_many :prescriptions
   has_many :appointments
-  validates :role, presence: true, 
-         uniqueness: { case_sensitive: false }
+  validates :role, presence: true
   validates :gender, presence: true
+  validates :hospital, presence: true
+  validates :department, presence: true
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

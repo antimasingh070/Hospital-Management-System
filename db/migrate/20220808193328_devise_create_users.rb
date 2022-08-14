@@ -14,6 +14,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.integer :hospital_id             
       t.string :role      
       t.integer :department_id 
+      t.integer :appointment_id
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at

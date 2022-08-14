@@ -20,10 +20,8 @@
         <td><%= hospital.address %></td>
         <td><%= hospital.specialization %></td>
         <td><%= hospital.logo %></td>
-        <td><%= link_to 'Delete', hospital_path(hospital) %></td>
-        <td><%= link_to 'Edit', hospital_path(hospital) %></td>
+         <td><%= link_to 'Show', departments_path, class: "btn btn-success btn-lg" %></td>
       </tr>
     <% end %>
   </table>
   <% end %>
-<p><%= link_to "Add new Book", {:action => 'new' }, class: 'btn btn-primary' %></p>

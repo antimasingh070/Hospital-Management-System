@@ -9,7 +9,7 @@
         <td><strong>Email: </strong> <%= @user.email %></td>
         <td>
           <% if current_user.not_appointments_with?(@user.id) %>
-            <%= link_to 'Follow appointment?', appointments_path(appointment: @appointment),
+            <%= link_to 'pending appointment?', appointments_path(appointment: @appointment),
                           class: "btn btn-sm btn-success", method: :post %>
           <% else %>
             <span class="badge badge-secondary">
@@ -22,9 +22,3 @@
   </table>
 </div>
 
-<% if !@accepted_appointments.empty? %>
-  <%= render 'appointments/appointment'%>
-<% else %>
-  <p class='lead'>This user is not tracking any stocks</p>
-<% end %>
-<%= link_to 'Back', my_profiles_path, class: "btn btn-primary" %>

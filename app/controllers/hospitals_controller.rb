@@ -6,8 +6,8 @@ class HospitalsController < ApplicationController
         @hospitals = Hospital.all
     end
 
-    def doctors
-        @hospital = Hospital.find(session[:hospital])
-        @hospital = @hospital.users.where(role: 'doctor')
-    end
+    # def doctors
+    #     @hospital = Hospital.find(session[:hospital])
+    #     @hospital = @hospital.users.where(role: 'doctor')
+    # end
 end

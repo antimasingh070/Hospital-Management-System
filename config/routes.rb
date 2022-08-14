@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :prescriptions
   resources :departments
-  resources :hospital
+  resources :hospitals
   resources :appointments
   devise_for :users
   devise_scope :user do
