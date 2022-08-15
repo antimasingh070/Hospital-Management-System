@@ -27,6 +27,7 @@ class PrescriptionsController < ApplicationController
 
     respond_to do |format|
       if @prescription.save
+        
         format.html { redirect_to prescription_url(@prescription), notice: "Prescription was successfully created." }
         format.json { render :show, status: :created, location: @prescription }
       else

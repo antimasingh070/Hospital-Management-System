@@ -20,7 +20,8 @@
         <td><%= hospital.address %></td>
         <td><%= hospital.specialization %></td>
         <td><%= hospital.logo %></td>
-         <td><%= link_to 'Show', departments_path, class: "btn btn-success btn-lg" %></td>
+         <td><%= link_to 'show', hospital_departments_path(hospital),  class: 'btn btn-primary' %></td>
+         <%# <td><%= link_to 'Show',  render :action => 'show', class: "btn btn-success btn-lg" %>
       </tr>
     <% end %>
   </table>

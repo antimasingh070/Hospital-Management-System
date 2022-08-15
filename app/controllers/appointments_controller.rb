@@ -1,5 +1,5 @@
 class AppointmentsController < ApplicationController
-  before_action :set_appointment, only: %i[ show edit update destroy ]
+  before_action :set_appointment, only: %i[ show edit update destroy update_appointment_status ]
 
   # GET /appointments or /appointments.json
   def index
@@ -46,7 +46,10 @@ class AppointmentsController < ApplicationController
       end
     end
   end
-
+ 
+  # def update_appointment_status
+  #   @appointment = Appointment.find(params[:id])
+  # end
   # DELETE /appointments/1 or /appointments/1.json
   def destroy
     @appointment.destroy

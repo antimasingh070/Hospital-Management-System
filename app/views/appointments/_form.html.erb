@@ -13,12 +13,12 @@
     
   <div class="field">    
     <%= form.label :Doctor_id %>
-    <%= form.collection_select :doctor_id, User.all.where(role: "Doctor", id: current_user.hospital_id), :id, :username%><br>
+    <%= form.collection_select :doctor_id, User.all.where(role: "Doctor"), :id, :username%><br>
   </div>
 
   <div class="field">    
     <%= form.label :patient_id %>
-    <%= form.collection_select :patient_id, User.all.where(role: "Patient", id: current_user.hospital_id), :id, :username%><br>
+    <%= form.collection_select :patient_id, User.all.where(role: "Patient"), :id, :username%><br>
   </div>
 
   <div>

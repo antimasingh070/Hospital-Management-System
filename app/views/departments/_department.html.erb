@@ -20,7 +20,8 @@
         <td><%= department.logo %></td>
         <td><%= department.active %></td>
         <td><%= department.hospital_id %></td>
-        <td><%= link_to 'User List', users_path, class: "btn btn-success btn-lg"%></td>
+        
+        <td><%= link_to 'User List', department_users_path(department), class: "btn btn-success btn-lg"%></td>
       </tr>
        
     </tbody>
