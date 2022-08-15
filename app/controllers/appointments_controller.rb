@@ -47,9 +47,6 @@ class AppointmentsController < ApplicationController
     end
   end
  
-  # def update_appointment_status
-  #   @appointment = Appointment.find(params[:id])
-  # end
   # DELETE /appointments/1 or /appointments/1.json
   def destroy
     @appointment.destroy

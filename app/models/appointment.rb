@@ -1,7 +1,7 @@
 class Appointment < ApplicationRecord
     has_many :users 
     belongs_to :time_slot
-    belongs_to :prescription
+    has_one :prescription
     validates :time_slot, presence: true
 
     def get_status

@@ -12,21 +12,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
-#   def book_already_tracked?(ticker_symbol)
-#     book = book.check_db(ticker_symbol)
-#        return false unless book
-#        books.where(id: book.id).exists?    
-#        end
-
-#        def under_book_limit?
-#        books.count < 10
-#        end
-
-#        def can_track_book?(ticker_symbol)
-#        under_book_limit? && !book_already_tracked?(ticker_symbol)
-#        end
-
-
        def self.search(param)
        param.strip!
        to_send_back = (username_matches(param) + email_matches(param)).uniq

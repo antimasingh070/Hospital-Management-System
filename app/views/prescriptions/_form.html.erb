@@ -31,7 +31,7 @@
 
   <div class="field">    
     <%= form.label :Appointment_id %>
-    <%= form.collection_select :appointment_id, Appointment.all.where(status: "Active"), :id, :appointment_date%><br>
+    <%= form.collection_select :appointment_id, Appointment.all.where(status: "Pending"), :id, :appointment_date%><br>
   </div>   
 
   <div>

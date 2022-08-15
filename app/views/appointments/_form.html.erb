@@ -26,11 +26,14 @@
     <%= form.datetime_field :appointment_date %>
   </div>
 
-  <div>
+  <%# <div>
     <%= form.label :status, style: "display: block" %>
-    <%= form.text_field :status %>
-  </div>
-
+    <%# <%= form.text_field :status %>
+  <%# </div> %>
+  <div class="field">    
+      <%= form.label :status %></br>
+      <span class="option">Pending<span><%= form.radio_button :status, "Pending" %></br>
+    </div>
   <div>
     <%= form.label :time_slot_id, style: "display: block" %>
     <%= form.collection_select :time_slot_id, TimeSlot.all, :id, :start_at%><br>

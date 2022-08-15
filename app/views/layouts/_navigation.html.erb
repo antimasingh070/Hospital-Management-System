@@ -21,15 +21,12 @@
                 </ul>
                 
                 <ul class='navbar-nav ml-auto'>
-                <%# <%- if logged_in? %> 
-                  <li class="nav-item">
-                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-                    
-                    <%# <%= current_user.user_name %>
-                    <%# <% end %>
-                    </a>
-                
+                <%# <%- if current_user %> 
+                  <%# <li class="nav-item user-name">
+                      <%# <%= fa_icon 'user' %>
+                      <%# <%= current_user.username %> 
+                    <%# <% end%>
+                    <%# </li> %> 
                     <li class='nav-item'>
                         <%= link_to("Logout", destroy_user_session_path,
                             class: "btn btn-danger logout-button", method: :delete)%>
