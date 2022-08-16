@@ -3,7 +3,7 @@ class DepartmentsController < ApplicationController
 
   # GET /departments or /departments.json
   def index
-    @departments = Department.all
+    @departments = hospital.departments
   end
 
   # GET /departments/1 or /departments/1.json
@@ -58,13 +58,16 @@ class DepartmentsController < ApplicationController
   end
 
   private
+    def hospital
+      @hospital ||= Hospital.find(params[:hospital_id])
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_department
-      @department = Department.find(params[:id])
+      @department = hospital.departments.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def department_params
-      params.require(:department).permit(:name, :description, :logo, :active)
+      params.require(:department).permit(:name, :description, :logo, :active, :hospital_id)
     end
 end

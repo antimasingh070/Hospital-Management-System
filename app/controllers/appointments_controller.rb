@@ -1,11 +1,11 @@
 class AppointmentsController < ApplicationController
-  before_action :set_appointment, only: %i[ show edit update destroy ]
+  before_action :set_appointment, only: %i[ show edit update destroy update_appointment_status ]
 
   # GET /appointments or /appointments.json
   def index
     @appointments = Appointment.all
   end
-
+ 
   # GET /appointments/1 or /appointments/1.json
   def show
   end
@@ -46,7 +46,7 @@ class AppointmentsController < ApplicationController
       end
     end
   end
-
+ 
   # DELETE /appointments/1 or /appointments/1.json
   def destroy
     @appointment.destroy
@@ -65,6 +65,6 @@ class AppointmentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def appointment_params
-      params.require(:appointment).permit(:doctor_id, :patient_id, :appointment_date, :status, :slot_id, :description, :hospital_id)
+      params.require(:appointment).permit(:doctor_id, :patient_id,  :time_slot_id, :hospital_id, :appointment_date, :status, :description)
     end
 end

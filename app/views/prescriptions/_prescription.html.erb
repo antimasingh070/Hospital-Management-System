@@ -1,0 +1,29 @@
+<div id="<%= dom_id prescription %>">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+       
+        <th scope="col">appointment_id</th>
+        <th scope="col">doctor_id</th>
+        <th scope="col">patient_id</th>
+         <th scope="col">prescription</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+      <tr>
+        <th scope="row"><%= prescription.id %></th>
+        
+        <td><%= prescription.appointment_id %></td>
+        <td><%= prescription.doctor_id%></td>
+        <td><%= prescription.patient_id %></td>
+        <td><%= prescription.prescription %></td>
+        <td><%= link_to 'Update', appointments_path, class: 'btn btn-primary' %></td>
+      </tr>
+       
+    </tbody>
+  </table>
+
+</div>
+
