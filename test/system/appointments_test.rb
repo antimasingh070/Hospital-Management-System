@@ -19,7 +19,7 @@ class AppointmentsTest < ApplicationSystemTestCase
     fill_in "Doctor", with: @appointment.doctor_id
     fill_in "Hospital", with: @appointment.hospital_id
     fill_in "Patient", with: @appointment.patient_id
-    fill_in "Slot", with: @appointment.slot_id
+    fill_in "Slot", with: @appointment.time_slot_id
     fill_in "Status", with: @appointment.status
     click_on "Create Appointment"
 
@@ -36,7 +36,7 @@ class AppointmentsTest < ApplicationSystemTestCase
     fill_in "Doctor", with: @appointment.doctor_id
     fill_in "Hospital", with: @appointment.hospital_id
     fill_in "Patient", with: @appointment.patient_id
-    fill_in "Slot", with: @appointment.slot_id
+    fill_in "Slot", with: @appointment.time_slot_id
     fill_in "Status", with: @appointment.status
     click_on "Update Appointment"
 

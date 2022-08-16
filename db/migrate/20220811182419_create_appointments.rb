@@ -5,7 +5,7 @@ class CreateAppointments < ActiveRecord::Migration[7.0]
       t.integer :patient_id
       t.datetime :appointment_date
       t.string :status
-      t.integer :slot_id
+      t.integer :time_slot_id
       t.text :description
       t.integer :hospital_id
 

@@ -1,7 +1,65 @@
 @import "bootstrap";
 
 .navbar {
+    background-color: rgb(38, 124, 229) !important;
+  }
 
-    background-color: #FDF6EA !important;
-    
-    }
+  .search-area {
+      padding-top: 50px;
+  }
+  
+  .no-right-padding {
+      padding-right: 0 !important;
+  }
+  
+  .no-left-padding {
+      padding-left: 0 !important;
+  }
+  
+  .results-block {
+      display: inline-block;
+      margin-bottom: 1rem;
+  }
+  
+  .logout-button {
+      margin-right: 5px;
+  }
+  
+  .user-name {
+      margin-top: 3.5%;
+      padding-right: 5px;
+  }
+
+  .jumbotron {
+    background-image: asset-url('jumbo-copy.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 3%;
+    height: 425px;
+    font-size: 0.5cm;
+    font-weight: bold;
+  }
+  .display-4 {
+    font-size: 1.5cm;
+    font-weight: bold;
+    color: black ;
+  }
+  .lead {
+    color: black ;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  html,
+  body {
+    height: 100%;
+  }
+  
+  #page-content {
+    flex: 1 0 auto;
+    background-color: lightgrey;
+  }
+  
+  #sticky-footer {
+    flex-shrink: none;
+  }
+  

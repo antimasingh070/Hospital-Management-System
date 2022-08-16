@@ -1,37 +1,34 @@
 <div id="<%= dom_id appointment %>">
-  <p>
-    <strong>Doctor:</strong>
-    <%= appointment.doctor_id %>
-  </p>
-
-  <p>
-    <strong>Patient:</strong>
-    <%= appointment.patient_id %>
-  </p>
-
-  <p>
-    <strong>Appointment date:</strong>
-    <%= appointment.appointment_date %>
-  </p>
-
-  <p>
-    <strong>Status:</strong>
-    <%= appointment.status %>
-  </p>
-
-  <p>
-    <strong>Slot:</strong>
-    <%= appointment.slot_id %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= appointment.description %>
-  </p>
-
-  <p>
-    <strong>Hospital:</strong>
-    <%= appointment.hospital_id %>
-  </p>
-
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">doctor_id</th>
+        <th scope="col">patient_id</th>
+        <th scope="col">time_slot_id</th>
+         <th scope="col">hospital_id</th>
+        <th scope="col">appointment_date</th>
+        <th scope="col">status</th>
+        
+        <th scope="col">description</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+    
+      <tr>
+        <th scope="row"><%= appointment.id %></th>
+        <td><%= appointment.doctor_id %></td>
+        <td><%= appointment.patient_id %></td>
+        <td><%= appointment.time_slot_id %></td>
+         <td><%= appointment.hospital_id %></td>
+        <td><%= appointment.appointment_date %></td>
+        <td><%= appointment.status %></td>
+        
+        <td><%= appointment.description %></td>
+       
+      </tr>
+       
+    </tbody>
+  </table>
 </div>

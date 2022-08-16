@@ -6,9 +6,9 @@
   <% @departments.each do |department| %>
     <%= render department %>
     <p>
-      <%= link_to "Show this department", department %>
+      <%= link_to "Show this department", hospital_departments_path(@hospital, department) %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New department", new_department_path %>
+<%= link_to "New department", new_hospital_department_path(@hospital) %>

@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_09_210146) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_14_092453) do
   create_table "appointments", force: :cascade do |t|
     t.integer "doctor_id"
     t.integer "patient_id"
     t.datetime "appointment_date"
     t.string "status"
-    t.integer "slot_id"
+    t.integer "time_slot_id"
     t.text "description"
     t.integer "hospital_id"
     t.datetime "created_at", null: false
@@ -27,9 +27,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_09_210146) do
     t.string "name"
     t.text "description"
     t.string "logo"
-    t.string "active"
+    t.boolean "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "hospital_id"
   end
 
   create_table "hospitals", force: :cascade do |t|
@@ -38,6 +39,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_09_210146) do
     t.text "address"
     t.string "specialization"
     t.string "logo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "prescriptions", force: :cascade do |t|
+    t.text "prescription"
+    t.integer "appointment_id"
+    t.integer "doctor_id"
+    t.integer "patient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -59,6 +69,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_09_210146) do
     t.string "gender"
     t.integer "hospital_id"
     t.string "role"
+    t.integer "department_id"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -68,6 +79,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_09_210146) do
     t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "appointment_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

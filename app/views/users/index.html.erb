@@ -1,0 +1,41 @@
+<% if @users.blank? %>
+  <p>There are not any users currently in the system.</p>
+<% else %>
+  <h1>Users listing page</h1>
+  <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">email</th>
+      <th scope="col">Password</th>
+      <th scope="col">username</th>
+      <th scope="col">designation</th>
+      <th scope="col">active</th>
+      <th scope="col">age</th>
+      <th scope="col">gender</th>
+      <th scope="col">hospital_id</th>
+      <th scope="col">role</th>
+      <th scope="col">department_id</th>
+      <th scope="col">appointment_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+      <th scope="row"><%= user.id %></th>
+        <td><%= user.email %></td>
+        <td><%= user.password %></td>
+        <td><%= user.username %></td>
+        <td><%= user.designation %></td>
+        <td><%= user.active %></td>
+        <td><%= user.age %></td>
+        <td><%= user.gender %></td>
+        <td><%= user.hospital_id %></td>
+        <td><%= user.role %></td>
+        <td><%= user.department_id %></td>
+        <td><%= user.appointment_id %></td>
+         <td><%= link_to 'Show', users_path(user), class: "btn btn-success btn-lg" %></td>
+      </tr>
+    <% end %>
+  </table>
+  <% end %>

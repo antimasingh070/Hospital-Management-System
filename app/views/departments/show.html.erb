@@ -3,8 +3,8 @@
 <%= render @department %>
 
 <div>
-  <%= link_to "Edit this department", edit_department_path(@department) %> |
-  <%= link_to "Back to departments", departments_path %>
+  <%= link_to "Edit this department", edit_hospital_department_path(@hospital, @department) %> |
+  <%= link_to "Back to departments", hospital_departments_path %>
 
-  <%= button_to "Destroy this department", @department, method: :delete %>
+  <%= button_to "Destroy this department", hospital_department_path(@hospital, @department), method: :delete %>
 </div>

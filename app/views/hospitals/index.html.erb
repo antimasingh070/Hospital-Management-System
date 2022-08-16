@@ -1,0 +1,27 @@
+<% if @hospitals.blank? %>
+  <p>There are not any hospitals currently in the system.</p>
+<% else %>
+  <h1>Hospitals listing page</h1>
+  <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Number of Units</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @hospitals.each do |hospital| %>
+      <tr>
+      <th scope="row"><%= hospital.id %></th>
+        <td><%= hospital.name %></td>
+        <td><%= hospital.description %></td>
+        <td><%= hospital.address %></td>
+        <td><%= hospital.specialization %></td>
+        <td><%= hospital.logo %></td>
+         <td><%= link_to 'show', hospital_departments_path(hospital),  class: 'btn btn-primary' %></td>
+      </tr>
+    <% end %>
+  </table>
+  <% end %>

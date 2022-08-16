@@ -10,15 +10,15 @@
       </ul>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :doctor_id, style: "display: block" %>
-    <%= form.number_field :doctor_id %>
+    
+  <div class="field">    
+    <%= form.label :Doctor_id %>
+    <%= form.collection_select :doctor_id, User.all.where(role: "Doctor"), :id, :username%><br>
   </div>
 
-  <div>
-    <%= form.label :patient_id, style: "display: block" %>
-    <%= form.number_field :patient_id %>
+  <div class="field">    
+    <%= form.label :patient_id %>
+    <%= form.collection_select :patient_id, User.all.where(role: "Patient"), :id, :username%><br>
   </div>
 
   <div>
@@ -26,14 +26,17 @@
     <%= form.datetime_field :appointment_date %>
   </div>
 
-  <div>
+  <%# <div>
     <%= form.label :status, style: "display: block" %>
-    <%= form.text_field :status %>
-  </div>
-
+    <%# <%= form.text_field :status %>
+  <%# </div> %>
+  <div class="field">    
+      <%= form.label :status %></br>
+      <span class="option">Pending<span><%= form.radio_button :status, "Pending" %></br>
+    </div>
   <div>
-    <%= form.label :slot_id, style: "display: block" %>
-    <%= form.number_field :slot_id %>
+    <%= form.label :time_slot_id, style: "display: block" %>
+    <%= form.collection_select :time_slot_id, TimeSlot.all, :id, :start_at%><br>
   </div>
 
   <div>
@@ -41,11 +44,10 @@
     <%= form.text_area :description %>
   </div>
 
-  <div>
-    <%= form.label :hospital_id, style: "display: block" %>
-    <%= form.number_field :hospital_id %>
+  <div class="field">    
+    <%= form.label :Hospital_id %>
+    <%= form.collection_select :hospital_id, Hospital.all.where(id: current_user.hospital_id), :id, :name%><br>
   </div>
-
   <div>
     <%= form.submit %>
   </div>

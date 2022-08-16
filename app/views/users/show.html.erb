@@ -1,1 +1,23 @@
-I have changed this file
+<h2>User Details</h2>
+
+
+<div class="card card-header results-block">
+  <table class="col-md-12">
+    <tbody>
+      <tr>
+        <td><strong>Name: </strong> <%= @user.username %></td>
+        <td><strong>Email: </strong> <%= @user.email %></td>
+        <td>
+          <% if current_user.not_appointments_with?(@user.id) %>
+            <%= link_to 'pending appointment?', appointments_path(appointment: @appointment),
+                          class: "btn btn-sm btn-success", method: :post %>
+          <% else %>
+            <span class="badge badge-secondary">
+              accepted
+            </span>
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

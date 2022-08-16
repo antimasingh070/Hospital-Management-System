@@ -1,22 +1,29 @@
 <div id="<%= dom_id department %>">
-  <p>
-    <strong>Name:</strong>
-    <%= department.name %>
-  </p>
 
-  <p>
-    <strong>Description:</strong>
-    <%= department.description %>
-  </p>
-
-  <p>
-    <strong>Logo:</strong>
-    <%= department.logo %>
-  </p>
-
-  <p>
-    <strong>Active:</strong>
-    <%= department.active %>
-  </p>
-
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Logo</th>
+        <th scope="col">Active</th>
+        <th scope="col">Hospital_ID</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+      <tr>
+        <th scope="row"><%= department.id %></th>
+        <td><%= department.name %></td>
+        <td><%= department.description %></td>
+        <td><%= department.logo %></td>
+        <td><%= department.active %></td>
+        <td><%= department.hospital_id %></td>
+        
+        <td><%= link_to 'User List', department_users_path(department), class: "btn btn-success btn-lg"%></td>
+      </tr>
+       
+    </tbody>
+  </table>
 </div>
