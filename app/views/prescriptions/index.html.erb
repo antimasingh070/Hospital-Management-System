@@ -6,9 +6,9 @@
   <% @prescriptions.each do |prescription| %>
     <%= render prescription %>
     <p>
-      <%= link_to "Show this prescription", prescription %>
+      <%= link_to "Show this prescription", appointment_prescriptions_path(@appointment , prescription) %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New Prescription", new_prescription_path %>
+<%= link_to "New Prescription", new_appointment_prescription_path(@appointment) %>

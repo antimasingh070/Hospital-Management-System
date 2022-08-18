@@ -5,7 +5,7 @@ class PrescriptionsController < ApplicationController
   before_action :set_administrator, only: %i[ show]
   # GET /prescriptions or /prescriptions.json
   def index
-    @prescriptions = Prescription.all
+    @prescriptions = appointment.prescriptions
   end
 
   # GET /prescriptions/1 or /prescriptions/1.json
@@ -61,9 +61,13 @@ class PrescriptionsController < ApplicationController
   end
 
   private
+    def appointment
+     
+      @appointment ||= Appointment.find(params[:appointment_id])
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_prescription
-      @prescription = Prescription.find(params[:id])
+      @prescription = appointment.prescriptions.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

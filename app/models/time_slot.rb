@@ -1,3 +1,3 @@
 class TimeSlot < ApplicationRecord
-    has_one :appointments
+    has_many :appointments
 end

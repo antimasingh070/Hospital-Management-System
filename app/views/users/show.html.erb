@@ -1,23 +1,22 @@
-<h2>User Details</h2>
-
-
-<div class="card card-header results-block">
-  <table class="col-md-12">
-    <tbody>
-      <tr>
-        <td><strong>Name: </strong> <%= @user.username %></td>
-        <td><strong>Email: </strong> <%= @user.email %></td>
-        <td>
-          <% if current_user.not_appointments_with?(@user.id) %>
-            <%= link_to 'pending appointment?', appointments_path(appointment: @appointment),
-                          class: "btn btn-sm btn-success", method: :post %>
-          <% else %>
-            <span class="badge badge-secondary">
-              accepted
-            </span>
-          <% end %>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+  <div class="card-header">Showing User details</div>
+  <div class="card-body">
+    <h5 class="card-title"><strong>User ID: </strong> <%= @user.id %> <br></h5>
+    <p class="card-text">
+    <div class= "container">
+      <strong>Username: </strong> <%= @user.username %><br>
+      <strong>Email: </strong> <%= @user.email %><br>
+      <strong>Designation </strong> <%= @user.designation %><br>
+      <strong>Active: </strong> <%= @user.active   %><br>
+      <strong>Age: </strong> <%= @user.age  %><br>
+      <strong>Gender </strong> <%= @user.gender %><br>
+      <strong>Hospital_id: </strong> <%= @user.hospital_id %><br>
+      <strong>Role: </strong> <%= @user.role %><br>
+      <strong>Appointment_id </strong> <%= @user.appointment_id %><br>
+      </div>
+    </p>
+  </div>
 </div>
+
+<hr />
+<%= link_to 'Back', {:action => 'index'},  class: 'btn btn-primary' %>

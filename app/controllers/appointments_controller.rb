@@ -1,5 +1,5 @@
 class AppointmentsController < ApplicationController
-  before_action :set_appointment, only: %i[ show edit update destroy update_appointment_status ]
+  before_action :set_appointment, only: [ :show, :edit, :update, :destroy]
 
   # GET /appointments or /appointments.json
   def index
@@ -34,6 +34,15 @@ class AppointmentsController < ApplicationController
     end
   end
 
+  def mark_as_completed
+    
+    # @appointment = Appointment.find(params[:id])
+    @appointment = Appointment.find(params[:id])
+    @appointment.status = "Complete"
+    @appointment.save
+    redirect_to appointments_path
+  end
+
   # PATCH/PUT /appointments/1 or /appointments/1.json
   def update
     respond_to do |format|
@@ -60,6 +69,7 @@ class AppointmentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_appointment
+    
       @appointment = Appointment.find(params[:id])
     end
 

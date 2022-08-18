@@ -11,6 +11,8 @@
         <th scope="col">status</th>
         
         <th scope="col">description</th>
+        
+         
        
       </tr>
     </thead>
@@ -23,9 +25,10 @@
         <td><%= appointment.time_slot_id %></td>
          <td><%= appointment.hospital_id %></td>
         <td><%= appointment.appointment_date %></td>
-        <td><%= appointment.status %></td>
+        <td><%= appointment.status %> | <%= link_to 'Update', mark_as_completed_path(appointment.id), method: :put, class: 'btn btn-primary' %>
         
         <td><%= appointment.description %></td>
+        <td><%= link_to 'Show Prescription', appointment_prescriptions_path(appointment) , class: 'btn btn-primary' %><td>
        
       </tr>
        
