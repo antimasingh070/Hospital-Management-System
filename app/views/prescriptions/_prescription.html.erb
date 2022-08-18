@@ -4,10 +4,10 @@
       <tr>
         <th scope="col">ID</th>
        
-        <th scope="col">appointment_id</th>
-        <th scope="col">doctor_id</th>
-        <th scope="col">patient_id</th>
-         <th scope="col">prescription</th>
+        <th scope="col">Appointment_id</th>
+        <th scope="col">Doctor_id</th>
+        <th scope="col">Patient_id</th>
+         <th scope="col">Prescription</th>
       </tr>
     </thead>
     <tbody>
@@ -19,7 +19,6 @@
         <td><%= prescription.doctor_id%></td>
         <td><%= prescription.patient_id %></td>
         <td><%= prescription.prescription %></td>
-        <td><%= link_to 'Update', appointments_path, class: 'btn btn-primary' %></td>
       </tr>
        
     </tbody>

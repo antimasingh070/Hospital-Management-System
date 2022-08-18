@@ -1,14 +1,14 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit]
+  before_action :set_user, only: [:edit, :show]
   before_action :require_user, except: [:create, :destroy]
   before_action :require_same_user, only: [:edit, :update, :destroy, :new, :create]
 
   def show
     
   end
-  def show
-    @hospital = Hospital.find(params[:id])
-  end
+  # def show
+  #   @hospital = Hospital.find(params[:id])
+  # end
   def index
       @users = User.all
   end
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:username, :email, :password)
+    params.require(:user).permit(:email,:username,:designation,:active,:age,:gender,:hospital_id,:role, :department_id, :appointment_id )
   end
 
   def set_user

@@ -11,7 +11,8 @@ class ApplicationController < ActionController::Base
   def logged_in?
     !!current_user
   end
-
+  # def doctor?
+  #   current_user.role == "Doctor"
   def set_doctor
     @current_user = User.all.where(role: "Doctor")
   end

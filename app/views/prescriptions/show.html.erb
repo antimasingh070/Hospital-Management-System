@@ -3,8 +3,8 @@
 <%= render @prescription %>
 
 <div>
-  <%= link_to "Edit this prescription", edit_prescription_path(@prescription) %> |
-  <%= link_to "Back to prescriptions", prescriptions_path %>
+  <%= link_to "Edit this prescription", edit_appointment_prescription_path(@appointment, @prescription) %> |
+  <%= link_to "Back to prescriptions", appointment_prescriptions_path %>
 
-  <%= button_to "Destroy this prescription", @prescription, method: :delete %>
+  <%= button_to "Destroy this prescription", appointment_prescription_path(@appointment, @prescription), method: :delete %>
 </div>
